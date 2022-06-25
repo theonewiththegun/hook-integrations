@@ -16,3 +16,5 @@ Intellij script and tweaked to work reliably without clearing your clipboard.
 # How do I use these scripts
 
 Hook has a very detailed tutorial page [here](https://hookproductivity.com/help/integration/creating-integration-scripts/).
+You basically need to copy a non-compiled script to the scripts pane of an app and press "save".
+Compiled versions are presented just for testing via Script Editor on your Mac.
