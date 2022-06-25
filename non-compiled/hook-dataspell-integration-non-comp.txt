@@ -1,0 +1,23 @@
+set old_clipboard to the clipboard
+
+set the clipboard to ""
+tell application id "com.jetbrains.dataspell"
+    activate
+end tell
+
+tell application "System Events"
+    repeat 2 times
+        keystroke "c" using {shift down, command down}
+        delay 0.1
+        try
+            set fp to the clipboard
+            if fp is not equal to "" then
+                exit repeat
+            end if
+        end try
+    end repeat
+end tell
+
+set the clipboard to old_clipboard
+get fp
+

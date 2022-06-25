@@ -1,0 +1,8 @@
+tell application id "com.googlecode.iterm2"
+    activate
+    tell the current window
+        tell the current session
+            return "file://" & (variable named "path")
+        end tell
+    end tell
+end tell

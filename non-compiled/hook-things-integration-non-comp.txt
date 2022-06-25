@@ -1,0 +1,25 @@
+tell application id "com.culturedcode.ThingsMac"
+    set n to count of selected to dos
+    if n = 1 then
+        set todo_id to id of item 1 of selected to dos
+        set item_id to todo_id
+    else if n = 0 then
+        try
+            set current_window to item 1 of windows
+            set project_name to name of current_window
+            set project_id to id of project project_name
+            set item_id to project_id
+        end try
+    else
+        set proj to project of item 1 of selected to dos
+        repeat with todo in selected to dos
+            if proj is not project of todo then
+                return
+            end if
+        end repeat
+        set todo_id to id of proj
+        set item_id to todo_id
+    end if
+    set todo_url to "things:///show?id=" & item_id
+    todo_url
+end tell
